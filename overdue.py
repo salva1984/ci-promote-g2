@@ -1,7 +1,10 @@
+"""Minimal overdue loan helper."""
+
 from datetime import datetime
 
 
 def report_overdue(reference_date, loans=None):
+    """Print and return loans whose due date is before the reference date."""
     if loans is None:
         loans = []
 
@@ -23,7 +26,9 @@ def report_overdue(reference_date, loans=None):
 
     for loan in overdue:
         print(
-            f"name={loan.get('name')} object={loan.get('object_loaned')} due_date={loan.get('due_date')}"
+            f"name={loan.get('name')} object={loan.get('object_loaned')} "
+            f"due_date={loan.get('due_date')}"
         )
 
     return overdue
+
