@@ -1,13 +1,10 @@
 """Tests for the overdue loan helper."""
 
+from overdue import report_overdue
 from pathlib import Path
 import sys
 
-
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-
-from overdue import report_overdue
-
 
 def test_report_overdue_returns_only_overdue_loans():
     """It returns only loans that are past the reference date."""
