@@ -1,5 +1,3 @@
-"""CLI principal del proyecto."""
-
 import os
 import json
 
