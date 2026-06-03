@@ -31,4 +31,3 @@ def report_overdue(reference_date, loans=None):
         )
 
     return overdue
-
