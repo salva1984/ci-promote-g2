@@ -1,13 +1,17 @@
-name: Pylint
+name: CI
 
-on: [push]
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.8", "3.9", "3.10"]
+        python-version: ["3.8", "3.9", "3.10", "3.12"]
     steps:
     - uses: actions/checkout@v4
     - name: Set up Python ${{ matrix.python-version }}
@@ -19,6 +23,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install pylint pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        if [ -f pyproject.toml ] || [ -f setup.py ]; then pip install -e .; fi
 
     - name: Analysing the code with pylint
       run: |
@@ -26,4 +31,4 @@ jobs:
 
     - name: Test with pytest
       run: |
-        pytest
+        pytest -q
