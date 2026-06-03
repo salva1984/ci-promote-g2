@@ -30,18 +30,10 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: "3.10"
-    - name: Run overdue feature test
+    - name: Install test dependencies
       run: |
-        python - <<'PY'
-        from overdue import report_overdue
-
-        loans = [
-            {"name": "Ana", "object_loaned": "Libro A", "due_date": "2026-06-01"},
-            {"name": "Luis", "object_loaned": "Libro B", "due_date": "2026-06-10"},
-        ]
-
-        overdue = report_overdue("2026-06-03", loans)
-        assert len(overdue) == 1
-        assert overdue[0]["name"] == "Ana"
-        assert overdue[0]["object_loaned"] == "Libro A"
-        PY
+        python -m pip install --upgrade pip
+        pip install pytest
+    - name: Run overdue pytest
+      run: |
+        pytest tests/test_overdue.py
