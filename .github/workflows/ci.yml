@@ -17,3 +17,36 @@ jobs:
       - run: pip install -e .
       - run: pip install pytest
       - run: pytest -q
+  
+  release:
+    needs: test 
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' 
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write 
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12" 
+      - name: Install build tool
+        run: pip install build
+      - name: Build package artifact
+        run: python -m build
+      - name: Upload packaged artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cafelibro-packaged-distribution
+          path: dist/
+      - name: Create version tag
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          TAG_VERSION="v1.0.${{ github.run_number }}"
+          echo "Creando tag de versión: $TAG_VERSION"
+          
+          git tag $TAG_VERSION
+          git push origin $TAG_VERSION
