@@ -6,3 +6,5 @@ CI Workshop
 3. Return a book, marking it available again. - Assigned to Gabriel Tumbaco
 4. List the books a member currently has on loan. - Assigned to Salvador Muñoz
 5. Report the loans that are overdue, given a due date for each loan. - Assigned to Anthony Navarrete
+
+.
