@@ -1,6 +1,4 @@
-
 from storage import find_by_id
-
 
 def register_member(data, member_id, name):
     member_id = member_id.strip()
