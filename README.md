@@ -1,5 +1,6 @@
 # ci-promote-g2
 CI Workshop
+Documento del taller: [Taller 2](docs/Taller_2.pdf)
 
 1. Register a member, with a name and a unique identifier. - Assigned to Nahim Diaz  
 2. Loan a book to a member. A book that is already on loan cannot be loaned again. - Assigned to Shirley Aragon  
