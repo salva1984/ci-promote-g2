@@ -1,8 +1,6 @@
-
 from storage import load_data
 
 ACTIONS = {}
-
 
 def main():
     while True:
@@ -26,7 +24,6 @@ def main():
             action[1](data)
         except ValueError as error:
             print(f"Error: {error}")
-
 
 if __name__ == "__main__":
     main()
