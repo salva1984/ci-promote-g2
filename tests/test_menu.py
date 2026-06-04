@@ -8,7 +8,7 @@ def test_menu_exit_immediately(monkeypatch, capsys):
     menu.main()
 
     out = capsys.readouterr().out
-    assert "Goodbye." in out
+    assert "Goodbye. partner" in out
 
 def test_menu_runs_action(monkeypatch):
     called = {}
