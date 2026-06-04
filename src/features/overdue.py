@@ -4,17 +4,6 @@ from storage import find_by_id
 
 
 def overdue_loans(data, today=None):
-    """Return the loans whose due date is in the past.
-
-    Args:
-        data: the library state dict.
-        today: a datetime.date used as "now". Defaults to the system date.
-
-    Returns:
-        A list of dicts, one per overdue loan, each with the book title and
-        member name attached for display:
-        {"book_id", "title", "member_id", "member_name", "due_date"}.
-    """
     if today is None:
         today = date.today()
 

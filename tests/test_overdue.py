@@ -1,5 +1,3 @@
-"""Tests for Feature 5 — overdue_loans."""
-
 from datetime import date
 
 from src.features.overdue import overdue_loans
