@@ -1,6 +1,10 @@
 from datetime import date
+from pathlib import Path
+import sys
 
-from src.features.overdue import overdue_loans
+sys.path.append(str(Path(__file__).resolve().parents[1] / "src"))
+
+from features.overdue import overdue_loans
 
 
 def fresh_data():
