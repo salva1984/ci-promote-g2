@@ -1,11 +1,3 @@
-"""Feature 5 — Report overdue loans.
-
-Owner: Anthony Navarrete
-
-A loan is overdue when its due date is before today. The reference date
-defaults to the system date but can be passed in to make tests deterministic.
-"""
-
 from datetime import date
 
 from storage import find_by_id
